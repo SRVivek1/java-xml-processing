@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://rpsoft.com/ComplexTypesWithAttributes"
+	xmlns:tns="http://rpsoft.com/ComplexTypesWithAttributes"
+	elementFormDefault="qualified">
+	
+	<!-- Defining XSD for complext type and attributes for xml -->
+	
+	<xsd:element name="PersonBean" type="tns:Person" />
+	<xsd:complexType name="Person">
+		<xsd:all>
+			<xsd:element name="fName" type="xsd:string" default="First Name"/>
+			<xsd:element name="lName" type="xsd:string" default="Last Name"/>
+			<xsd:element name="mobile" type="xsd:integer" default="9878654321" />
+		</xsd:all>
+		<xsd:attribute name="nickName" type="xsd:string" use="required"/>
+		<xsd:attribute name="gfNames" type="xsd:string" use="required"/>
+	</xsd:complexType>
+</xsd:schema>

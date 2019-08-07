@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Person height="5.10" weight="75" wife="WifeName"
+	xmlns:tns="http://rpsoft.com/helloworld/xsd/defininingdefaults/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://rpsoft.com/helloworld/xsd/defininingdefaults/ XsdDefiningFixedAndDefaultValues.xsd ">
+	<tns:firstName>Raju</tns:firstName>
+	<tns:lastName>Indian</tns:lastName>
+</tns:Person>

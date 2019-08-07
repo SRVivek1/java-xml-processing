@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:PersonBean girlFriendNames="girlFriendName"
+	nickName="Nickname" xmlns:tns="http://rpsoft.com/ComplexTypesWithAttributes"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://rpsoft.com/ComplexTypesWithAttributes ComplexTypesWithAttributes.xsd ">
+	<tns:fName>First Name</tns:fName>
+	<tns:lName>Last Name</tns:lName>
+	<tns:mobile>Mobile</tns:mobile>
+</tns:PersonBean>

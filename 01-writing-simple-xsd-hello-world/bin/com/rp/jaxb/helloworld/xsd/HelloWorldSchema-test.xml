@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:personBean xmlns:tns="http://rpsoft.org/HelloWorldSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://rpsoft.org/HelloWorldSchema HelloWorldSchema.xsd ">
+	<tns:fName>tns:fName</tns:fName>
+	<tns:lName>tns:lName</tns:lName>
+	<tns:mobileNo>0</tns:mobileNo>
+	<tns:dateOfBirth>2001-12-31T12:00:00</tns:dateOfBirth>
+	<tns:weight>0</tns:weight>
+</tns:personBean>

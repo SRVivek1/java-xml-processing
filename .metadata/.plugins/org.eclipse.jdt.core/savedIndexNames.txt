@@ -1,0 +1,26 @@
+INDEX VERSION 1.127+C:\Windows\SystemD\WorkSpaces\workspace\java-xml-processing\.metadata\.plugins\org.eclipse.jdt.core
+2504916838.index
+2272507214.index
+2158067223.index
+2265368366.index
+3736590627.index
+2949965254.index
+899487266.index
+3553359422.index
+593628443.index
+3613242266.index
+101497952.index
+1192211369.index
+3642242637.index
+44868662.index
+3446211940.index
+2539290596.index
+2732577128.index
+2856495855.index
+1011265223.index
+2120809787.index
+3608982216.index
+864616204.index
+1167482770.index
+1784954439.index
+3046262846.index

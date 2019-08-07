@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://rpsoft.com/XsdWithDefiningInheritance"
+	xmlns:tns="http://rpsoft.com/XsdWithDefiningInheritance"
+	elementFormDefault="qualified">
+
+	<!-- Parent definition -->
+	<xsd:complexType name="person">
+		<xsd:sequence>
+			<xsd:element name="fName" type="xsd:string" maxOccurs="1"
+				minOccurs="1" nillable="false" />
+			<xsd:element name="lName" type="xsd:string" maxOccurs="1"
+				minOccurs="1" nillable="false" />
+			<xsd:element name="gender" type="xsd:string" maxOccurs="1"
+				minOccurs="1" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Employee entending person -->
+	<xsd:element name="employeeBean" type="tns:Emploee" />
+
+	<!-- Child definition -->
+	<xsd:complexType name="Emploee">
+		<xsd:complexContent>
+			<xsd:extension base="tns:person">
+				<xsd:sequence>
+					<xsd:element name="employeeID">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:pattern value="[a-z0-9._]{10}" />
+								<xsd:length value="10" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+
+</xsd:schema>

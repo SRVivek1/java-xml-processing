@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema id="definingRestrictions"
+	targetNamespace="http://rpsoft.com/xsd/helloworld/restrictions/on/values"
+	xmlns:tns="http://rpsoft.com/xsd/helloworld/restrictions/on/values"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="Email" type="tns:EmailType" />
+	<xsd:complexType name="EmailType">
+		<xsd:sequence>
+			<xsd:element name="subject" type="tns:subjectType" />
+			<xsd:element name="initials" type="tns:initialsType" />
+			<xsd:element name="initialsSecond" type="tns:initialsSecondType" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- restrictions on alphabets -->
+
+	<!-- defining subject type to only to have alphabets between a to z in smalls 
+		only. -->
+	<xsd:simpleType name="subjectType">
+		<xsd:restriction base="xsd:string">
+			<!-- accepts a to z in small chars only -->
+			<xsd:pattern value="[a-z]"></xsd:pattern>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- Initials are used in name. These are of 3 chars -->
+	<!-- Here defined pattern will accept only values between A TO Z in captital 
+		case that also 3 times only. -->
+	<xsd:simpleType name="initialsType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[A-Z][A-Z][A-Z]" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Extension to above defined initials -->
+	<!-- this definitions will allow alphabets between a to z & A to Z for 3 
+		times. -->
+	<xsd:simpleType name="initialsSecondType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[a-zA-Z][a-zA-Z][a-zA-Z]" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- Defining selected characters only -->
+	<!-- here for choice field only allowed values are 'x', 'y' & 'z' -->
+	<xsd:element name="choice">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:pattern value="[xyz]"></xsd:pattern>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+
+	<!-- restrictions on numbers -->
+
+	<!-- defining a field which will accept only 5 digits ranging betweenfrom 
+		0-9 -->
+	<xsd:element name="numberRestriction">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:integer">
+				<xsd:pattern value="[0-9][0-9][0-9][0-9][0-9]"></xsd:pattern>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<!-- defining age must be between 0 to 120 -->
+	<xsd:element name="age">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:integer">
+				<xsd:minExclusive value="0" />
+				<xsd:maxExclusive value="120" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+
+	<!-- Using wildcards for matching restrictions -->
+	<!-- requirement : acceptable value are 0 or more occurance of lower case 
+		letters -->
+	<xsd:element name="zeroOrMore">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:pattern value="[a-z]*" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<!-- Requrement : One more more occurances of a-z -->
+	<xsd:element name="oneOrMore">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:pattern value="[a-z]+" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<!-- Requirement : Implement OR operator -->
+	<xsd:element name="orWildCard">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:pattern value="Male | Female" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<!-- defining occurance count -->
+	<!-- below pattern will allow only chars. ranging as specified a-z, A-Z 
+		& 0-9 -->
+	<xsd:element name="occuranceCount">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:pattern value="[a-zA-Z0-9]{8}" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+</xsd:schema>

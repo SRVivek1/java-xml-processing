@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema id="definingRestrictions"
+	targetNamespace="http://rpsoft.com/xsd/helloworld/restrictions/on/values"
+	xmlns:tns="http://rpsoft.com/xsd/helloworld/restrictions/on/values" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="Car">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="brand" type="tns:brandName" nillable="false"/>
+				<xsd:element name="car" type="tns:carType" nillable="false"/>
+			</xsd:sequence>
+			<xsd:attribute name="stearing" type="tns:stearingType" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<!-- Restricting brandName to below mentioned values only -->
+	<xsd:simpleType name="brandName">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BMW" />
+			<xsd:enumeration value="AUDI" />
+			<xsd:enumeration value="Ferrari" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="carType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="Mini" />
+			<xsd:enumeration value="HBack" />
+			<xsd:enumeration value="SUV" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="stearingType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="PowerStearing" />
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

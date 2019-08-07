@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema id="definingRestrictions"
+	targetNamespace="http://rpsoft.com/xsd/helloworld/restrictions/on/values"
+	xmlns:tns="http://rpsoft.com/xsd/helloworld/restrictions/on/values"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<!-- Handling white characters -->
+	<!-- Preserve : Instructs xml processor to not remove white spaces -->
+	<xsd:element name="address">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:whiteSpace value="preserve" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<!-- Replace : XML processor WILL REPLACE all white space characters (line 
+		feeds, tabs, spaces, and carriage returns) with spaces -->
+	<xsd:element name="address1">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:whiteSpace value="replace" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+	<!-- Collapse : XML processor WILL REMOVE all white space characters (line feeds, tabs, 
+		spaces, carriage returns) are replaced with spaces, leading and trailing spaces 
+		are removed, and multiple spaces are reduced to a single space. -->
+	<xsd:element name="address2">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:whiteSpace value="collapse" />
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+
+</xsd:schema>

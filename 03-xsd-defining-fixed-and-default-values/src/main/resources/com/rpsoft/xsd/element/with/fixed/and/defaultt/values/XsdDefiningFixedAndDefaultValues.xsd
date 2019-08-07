@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<xsd:schema id="HelloWorld" elementFormDefault="qualified" 
+	targetNamespace="http://rpsoft.com/helloworld/xsd/defininingdefaults/"
+	xmlns:tns="http://rpsoft.com/helloworld/xsd/defininingdefaults/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="Person" type="tns:PersonBean" />
+	<xsd:complexType name="PersonBean">
+		<xsd:sequence>
+			<xsd:element name="firstName" type="xsd:string" default="Raju"/>
+			<xsd:element name="lastName" type="xsd:string" fixed="Indian"/>
+		</xsd:sequence>
+		<xsd:attribute name="height" type="xsd:double" use="optional" default="5.10" />
+		<xsd:attribute name="weight" type="xsd:double" use="optional" default="75" />
+		<xsd:attribute name="wife" type="xsd:string" use="required" fixed="WifeName" />
+	</xsd:complexType>
+
+</xsd:schema>

@@ -1,0 +1,112 @@
+/**
+ * This class help to marshall those jax-b classes which are not having @XMLRootElements but @XMLType element as root annotation.
+ * 
+ * Reference : http://stackoverflow.com/questions/4146540/how-to-marshal-an-object-via-jaxb-without-any-information-about-it
+ */
+package com.rpsoft.unmarshal.object.without.root.annotation;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.JAXBIntrospector;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.namespace.QName;
+
+public class JavaToXmlApp {
+
+	public static void main(String[] args) throws JAXBException {
+
+		CreateSubscriber createSubscriber = new CreateSubscriber();
+		createSubscriber.setSubscriber("createSubscriber");
+
+		SetSubscriber setSubscriber = new SetSubscriber();
+		setSubscriber.setSubscriber("setSubscriber");
+
+		Object obj1 = createSubscriber;
+
+		/*
+		 * System.out.println("Object : " + Object.class);
+		 * System.out.println("CreateSubscriber : " + CreateSubscriber.class);
+		 * System.out.println("SetSubscriber : " + SetSubscriber.class);
+		 * 
+		 * System.out.println("CreateSubscriber obj: " + obj1.getClass());
+		 */
+
+		JavaToXmlApp.anyObjectToXml(setSubscriber);
+
+		System.out.println();
+
+		JavaToXmlApp.anyObjectToXml(createSubscriber);
+	}
+
+	// parse object to xml
+	public static String toXml(Object object) {
+
+		String xmlResponse = "jaxb-error";
+
+		if (null == object) {
+			return xmlResponse;
+		}
+		try {
+
+			JAXBContext jaxbContext = JAXBContext.newInstance(
+					object.getClass(), RootBinder.class);
+			JAXBIntrospector introspector = jaxbContext
+					.createJAXBIntrospector();
+			Marshaller marshaller = jaxbContext.createMarshaller();
+			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,
+					Boolean.TRUE);
+
+			String rootElement = object.getClass().getSimpleName();
+			if (null == introspector.getElementName(object)) {
+				JAXBElement jaxbElement = new JAXBElement(
+						new QName(rootElement), object.getClass(), object);
+				marshaller.marshal(jaxbElement, System.out);
+			} else {
+				marshaller.marshal(object, System.out);
+			}
+		} catch (JAXBException jaxbException) {
+			jaxbException.printStackTrace();
+		}
+
+		return xmlResponse;
+	}
+
+	@XmlRootElement
+	public static class RootBinder {
+
+	}
+
+	// parse any object to xml
+	public static String anyObjectToXml(Object object) {
+		String xmlResponse = "jaxb-error";
+
+		if (null == object) {
+			return xmlResponse;
+		}
+		try {
+
+			JAXBContext jaxbContext = JAXBContext.newInstance(
+					object.getClass(), RootBinder.class);
+			JAXBIntrospector introspector = jaxbContext
+					.createJAXBIntrospector();
+			Marshaller marshaller = jaxbContext.createMarshaller();
+			marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,
+					Boolean.TRUE);
+
+			String rootElement = object.getClass().getSimpleName();
+			if (null == introspector.getElementName(object)) {
+				JAXBElement jaxbElement = new JAXBElement(
+						new QName(rootElement), object.getClass(), object);
+				marshaller.marshal(jaxbElement, System.out);
+			} else {
+				marshaller.marshal(object, System.out);
+			}
+		} catch (JAXBException jaxbException) {
+			jaxbException.printStackTrace();
+		}
+
+		return xmlResponse;
+	}
+}

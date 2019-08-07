@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://rpsoft.org/HelloWorldSchema" xmlns:tns="http://rpsoft.org/HelloWorldSchema"
+	elementFormDefault="qualified">
+
+	<xsd:element name="personBean" type="tns:Person" />
+	<xsd:complexType name="Person">
+		<xsd:sequence>
+			<xsd:element name="fName" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+			<xsd:element name="lName" type="xsd:string" />
+			<xsd:element name="mobileNo" type="xsd:integer" />
+			<xsd:element name="dateOfBirth" type="xsd:dateTime" nillable="false"/>
+			<xsd:element name="weight" type="xsd:double" default="0"/>
+		</xsd:sequence>
+	</xsd:complexType>	
+	
+</xsd:schema>
