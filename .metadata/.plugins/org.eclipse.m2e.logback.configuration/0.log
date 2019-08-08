@@ -464,3 +464,4 @@ Caused by: java.io.IOException: CreateProcess error=2, The system cannot find th
 	at java.lang.ProcessImpl.start(ProcessImpl.java:137) ~[na:1.8.0_11]
 	at java.lang.ProcessBuilder.start(ProcessBuilder.java:1029) ~[na:1.8.0_11]
 	... 34 common frames omitted
+2019-08-08 12:21:05,437 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
